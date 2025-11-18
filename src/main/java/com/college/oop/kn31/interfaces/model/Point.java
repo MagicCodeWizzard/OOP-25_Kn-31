@@ -49,6 +49,11 @@ public class Point implements Drawable {
     }
 
     @Override
+    public void create() {
+
+    }
+
+    @Override
     public void delete() {
         System.out.println("Deleting the point");
     }
