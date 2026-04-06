@@ -1,10 +1,10 @@
 package com.college.oop.kn31.collections.model;
 
 public class ContainerType {
-    private int value;
+    private Object value;
     private ContainerType next = null;
 
-    public ContainerType(int value)
+    public ContainerType(Object value)
     {
         this.value = value;
     }
@@ -17,6 +17,11 @@ public class ContainerType {
     public ContainerType getNext()
     {
         return next;
+    }
+
+    public Object getValue()
+    {
+        return value;
     }
 
     @Override

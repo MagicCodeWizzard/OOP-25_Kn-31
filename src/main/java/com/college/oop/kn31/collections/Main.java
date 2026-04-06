@@ -1,8 +1,11 @@
 package com.college.oop.kn31.collections;
 
 import com.college.oop.kn31.collections.model.ContainerType;
+import com.college.oop.kn31.collections.model.GeneralizedContainerType;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 public class Main {
@@ -10,26 +13,40 @@ public class Main {
         ContainerType element1 = new ContainerType(10);
         ContainerType element2 = new ContainerType(20);
         ContainerType element3 = new ContainerType(30);
-        ContainerType element4 = new ContainerType(40);
-        ContainerType element5 = new ContainerType(50);
+        ContainerType element4 = new ContainerType(LocalDateTime.now());
+        ContainerType element5 = new ContainerType("Hello world!");
 
         element1.setNext(element2);
         element2.setNext(element3);
         element3.setNext(element5);
         element5.setNext(element4);
 
-//        System.out.println("=== From first ===");
-//        printElements(element1);
-//
-//
-//        System.out.println("=== From third ===");
-//        printElements(element3);
-//
-//
-//        System.out.println("=== From last ===");
-//        printElements(element5);
+        ContainerType element = element1;
+        while(true) {
+            Object storedValue = element.getValue();
+            if (storedValue instanceof Integer) {
+                System.out.println("Current element: " + (int)storedValue);
+            } else if (storedValue instanceof String) {
+                System.out.println("Current element: " + ((String) storedValue).toUpperCase());
+            } else if (storedValue instanceof LocalDateTime) {
+                System.out.println("Current element: " + ((LocalDateTime) storedValue).format(DateTimeFormatter.ofPattern("yy-MM-dd HH:mm")));
+            }
 
-        vectorDemo(new Scanner(System.in));
+            element = element.getNext();
+            if (element == null) {
+                break;
+            }
+        }
+
+        //vectorDemo(new Scanner(System.in));
+
+        GeneralizedContainerType<String> first
+                = new GeneralizedContainerType<>("Hello world!");
+        GeneralizedContainerType<LocalDate> second = new GeneralizedContainerType<>(LocalDate.MAX);
+
+        GeneralizedContainerType<Object> third;
+
+        GeneralizedContainerType<Double> fourth = new GeneralizedContainerType<Double>(23.4);
     }
 
     public static void printElements(ContainerType element) {
