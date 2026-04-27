@@ -1,6 +1,9 @@
 package com.college.oop.kn31.interfaces.model;
 
-public abstract class Shape implements Drawable {
+import java.util.Arrays;
+import java.util.Objects;
+
+public abstract class Shape implements Drawable, Comparable<Shape> {
     public static final int MIN_POINTS_NUMBER = 3;
 
     private double width;
@@ -65,5 +68,22 @@ public abstract class Shape implements Drawable {
     @Override
     public void create() {
 
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Shape shape = (Shape) o;
+        return Double.compare(width, shape.width) == 0 && Double.compare(height, shape.height) == 0 && Objects.deepEquals(points, shape.points);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(width, height, Arrays.hashCode(points));
+    }
+
+    @Override
+    public int compareTo(Shape o) {
+        return o.equals(this) ? 0 : 1;
     }
 }
