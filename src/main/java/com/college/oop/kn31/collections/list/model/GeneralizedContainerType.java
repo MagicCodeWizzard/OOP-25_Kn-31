@@ -1,4 +1,4 @@
-package com.college.oop.kn31.collections.model;
+package com.college.oop.kn31.collections.list.model;
 
 import java.util.Iterator;
 import java.util.Spliterator;

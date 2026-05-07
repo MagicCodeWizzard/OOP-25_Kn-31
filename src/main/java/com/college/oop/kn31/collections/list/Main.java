@@ -1,7 +1,7 @@
-package com.college.oop.kn31.collections;
+package com.college.oop.kn31.collections.list;
 
-import com.college.oop.kn31.collections.model.ContainerType;
-import com.college.oop.kn31.collections.model.GeneralizedContainerType;
+import com.college.oop.kn31.collections.list.model.ContainerType;
+import com.college.oop.kn31.collections.list.model.GeneralizedContainerType;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;

@@ -1,4 +1,4 @@
-package com.college.oop.kn31.set_map;
+package com.college.oop.kn31.collections.set;
 
 import com.college.oop.kn31.interfaces.model.Point;
 import com.college.oop.kn31.interfaces.model.Rectangle;
